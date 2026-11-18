@@ -1,0 +1,96 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>English Handwriting · 매일 손글씨 연습</title><style>
+
+
+
+
+
+
+
+:root{--practice-font:EduFoundation}*{box-sizing:border-box}body{margin:0;background:#eae9e5;color:#263b31;font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif}.toolbar{max-width:210mm;margin:18px auto;padding:15px;background:white;border:1px solid #d4ddcf;border-radius:8px;display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:12px}.font-picker{display:flex;align-items:center;gap:8px}select{padding:8px;border:1px solid #b5c1ae;background:white;border-radius:5px;font:inherit;color:inherit}button{padding:10px 15px;border:0;border-radius:5px;background:#304e42;color:white;font:inherit;cursor:pointer}button:disabled{opacity:.45;cursor:wait}#randomButton{background:#ecf0e6;color:#304e42;border:1px solid #b5c1ae}.small{font-size:10px;color:#697763}.file-control{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.file-control input{max-width:215px;font:inherit}#fontStatus{width:100%;font-size:11px;color:#63715e}.page{width:210mm;height:297mm;margin:0 auto 24px;padding:13mm 15mm;background:white;display:flex;flex-direction:column;gap:2.5mm}header{border-top:4px solid #304e42;padding-top:11px}.eyebrow{font-size:9px;letter-spacing:2px;color:#67785e;font-weight:bold}h1{font-size:29px;margin:5px 0}.subtitle{margin:0;font-size:11px;color:#687661}.meta{display:flex;justify-content:space-between;font-size:10px;margin:3px 0 5px}.heading{display:flex;align-items:baseline;gap:9px;margin-bottom:7px}.num{font-size:11px;font-weight:bold;color:#667a59}h2{margin:0;font-size:13px}.hint{font-size:9px;color:#7a8573;margin-left:auto}.guide{height:14mm;width:100%;flex-shrink:0}.guide svg{display:block;width:100%;height:100%;overflow:visible}.guide text{font-family:var(--practice-font);font-weight:400;font-style:normal;white-space:pre;fill:#b5bdb0}.guide.model-row text{fill:#4b6040}.guide line{stroke:#dde3d8;stroke-width:.55}.guide .baseline{stroke:#7e956e;stroke-width:1}.guide .midline{stroke:#c5cfbc;stroke-dasharray:3 3}.families{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.family{min-width:0}.family-label{font-size:9px;color:#6d7b62;margin:0 0 4px;padding-left:7px}.section{margin-top:1mm}footer{margin-top:auto;border-top:1px solid #e1e6dc;padding-top:7px;font-size:8px;color:#7d8875;display:flex;justify-content:space-between}@page{size:A4 portrait;margin:0}@media print{body{background:white;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar{display:none}.page{margin:0;break-inside:avoid}}@media screen and (max-width:800px){.toolbar{margin:12px}.page{margin-left:12px}}
+.word-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.word-column{min-width:0}.quote-note{font-size:9px;line-height:1.5;color:#79846f;margin:-1mm 8px 0;min-height:14px}.quote-note .quote-source{color:#8b9384}.quote-item:last-child .quote-note{margin-bottom:0}.guide + .guide{margin-top:3mm}.quote-item + .quote-item{margin-top:3mm}.section{flex-shrink:0}@font-face{font-family:Andika;src:local("Andika"),local("Andika-Regular"),url("https://fonts.gstatic.com/s/andika/v27/mem_Ya6iyW-LwqgAbQ.ttf");font-display:swap}
+@font-face{font-family:EduFoundation;src:local("Edu NSW ACT Foundation"),local("EduNSWACTFoundation-Regular"),url("https://fonts.gstatic.com/s/edunswactfoundation/v5/raxRHjqJtsNBFUi8WO0vUBgc9D-2lV_oQdCAYlt_QTQ0vUxJki9tovGL.ttf");font-display:swap}
+@font-face{font-family:PlaywriteTrad;src:local("Playwrite US Trad"),local("PlaywriteUSTrad-Regular"),url("https://fonts.gstatic.com/s/playwriteustrad/v11/fdNX9tyHsnVPjW9trmV7wQ0stdwRBYclCsCdzOb1-cd1E8tgjw.ttf");font-display:swap}
+@font-face{font-family:SchoolPrint;src:local("Chalkboard SE"),local("ChalkboardSE-Regular");font-display:swap}
+@font-face{font-family:PracticePrint;src:local("Comic Sans MS"),local("ComicSansMS-Regular");font-display:swap}
+@font-face{font-family:SoftHand;src:local("Bradley Hand"),local("BradleyHand-Regular"),local("BradleyHand-Bold");font-display:swap}
+@font-face{font-family:ClearPrint;src:local("Arial"),local("Arial-Regular");font-display:swap}
+@media screen{
+.toolbar{box-sizing:border-box;width:calc(100% - 24px);min-width:0;max-width:210mm;margin:14px auto;padding:14px;display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:10px;background:#fff;color:#293d35;border:1px solid #cbd5ce;border-radius:12px;font:14px/1.4 system-ui,sans-serif}
+.toolbar .home,.toolbar button,.toolbar select,.toolbar #position-toggle{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:7px 13px;border:1px solid #bccbc3;border-radius:8px;background:#f5f8f5;color:#223e32;font:inherit;text-decoration:none;cursor:pointer}
+.toolbar .print{margin-left:auto;background:#244e3a;color:white}.toolbar button:disabled{opacity:.55}
+.toolbar .controls,.toolbar-buttons{display:contents}.toolbar label{flex-wrap:wrap}.toolbar p,.toolbar .status,.toolbar #fontStatus,.toolbar .small:not(label){order:5;flex-basis:100%;margin:0;font-size:12px;color:#53665c}.toolbar .print{order:4}
+}
+@page{size:A4 portrait;margin:5mm}
+@media print{html,body{width:auto;height:auto;min-height:0;margin:0;padding:0;background:white}.toolbar{display:none!important}body .page{width:100%;height:auto;min-height:0;margin:0;padding:6mm 8mm;box-shadow:none;break-inside:auto}}
+@media print {
+  body .page { display:block; padding:2mm 4mm; }
+  header { padding-top:1.5mm; }
+  .section { margin-top:2mm; }
+  .heading { margin-bottom:1mm; }
+  .guide { height:12mm; }
+  .guide + .guide, .quote-item + .quote-item { margin-top:1mm; }
+  .quote-note { margin-top:0; }
+  footer { margin-top:2mm; padding-top:1mm; }
+}
+
+.worksheet-header { display: flex; justify-content: space-between; align-items: center; gap: 14px; border-top: 0; border-bottom: 2px solid #304e42; padding: 0 0 2mm; }
+.worksheet-header .meta { display: grid; gap: 5px; margin: 0; }
+
+@media screen {
+  .toolbar .home, .toolbar .file-button { width: 58px; height: 42px; padding: 0; flex: 0 0 58px; }
+  .toolbar select { max-width: 100%; min-width: 0; }
+  .toolbar .size-control { display: inline-flex; align-items: center; gap: 6px; }
+  .toolbar .size-control input { width: 92px; }
+  .toolbar .file-button:focus-within { outline: 2px solid #244e3a; outline-offset: 2px; }
+  .toolbar .file-input { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .toolbar [role="status"]:empty { display: none; }
+}
+</style></head><body>
+<div class="toolbar"><a class="home" href="index.html">← 홈</a><button id="randomButton" type="button" disabled>NEW ↻</button><select aria-label="연습 글꼴" id="fontSelect"><optgroup label="추천 글꼴"><option value="EduFoundation">Edu NSW ACT Foundation · 기초 손글씨</option><option value="Andika">Andika · 깔끔한 정자체</option><option value="PlaywriteTrad">Playwrite US Trad · 연결 필기체</option><option value="SassoonCustom" disabled>Sassoon Primary · 글꼴 파일 필요</option></optgroup><optgroup label="기존 글꼴"><option value="SchoolPrint">Chalkboard SE</option><option value="PracticePrint">Comic Sans</option><option value="SoftHand">Bradley Hand</option><option value="ClearPrint">Arial</option></optgroup></select><label class="home file-button">파일<input class="file-input" id="sassoonFile" type="file" aria-label="글꼴 파일 선택" accept=".ttf,.otf,.woff,.woff2"></label><button class="print" id="printButton" type="button" disabled>인쇄 / PDF 저장</button><div class="status" id="fontStatus" role="status"></div></div>
+<main class="page"><header class="worksheet-header"><div><h1>English Handwriting</h1><p class="subtitle">본보기 → 따라 쓰기 → 혼자 쓰기</p></div><div class="meta"><span>Name __________________</span><span>Date ___________________</span></div></header>
+<section class="section"><div class="heading"><span class="num">01</span><h2>알파벳 따라 쓰기</h2><span class="hint">a부터 z까지 한 줄로</span></div><div class="guide alphabet" data-text="a b c d e f g h i j k l m n o p q r s t u v w x y z"></div><div class="guide alphabet"></div></section>
+<section class="section"><div class="heading"><span class="num">02</span><h2>글자 모양과 높이 익히기</h2><span class="hint">위의 본보기를 보고 아래에 따라 써요</span></div><div class="families">
+<div class="family"><p class="family-label">작은 글자 · 가운데 높이</p><div class="guide model-row" data-text="a  c  e  o"></div><div class="guide" data-text="a  c  e  o"></div></div>
+<div class="family"><p class="family-label">위로 긴 글자</p><div class="guide model-row" data-text="b  h  k  l"></div><div class="guide" data-text="b  h  k  l"></div></div>
+<div class="family"><p class="family-label">아래로 내려가는 글자</p><div class="guide model-row" data-text="g  p  q  y"></div><div class="guide" data-text="g  p  q  y"></div></div>
+</div></section>
+<section class="section"><div class="heading"><span class="num">03</span><h2>단어 연습</h2><span class="hint">본보기 → 따라 쓰기 → 혼자 쓰기</span></div><div class="word-grid"><div class="word-column"><div class="guide model-row" data-word="0"></div><div class="guide" data-word="0"></div><div class="guide"></div></div><div class="word-column"><div class="guide model-row" data-word="1"></div><div class="guide" data-word="1"></div><div class="guide"></div></div><div class="word-column"><div class="guide model-row" data-word="2"></div><div class="guide" data-word="2"></div><div class="guide"></div></div><div class="word-column"><div class="guide model-row" data-word="3"></div><div class="guide" data-word="3"></div><div class="guide"></div></div></div></section>
+<section class="section"><div class="heading"><span class="num">04</span><h2>짧은 문장 따라 쓰기</h2><span class="hint">명언·격언 세 문장</span></div><div class="quote-item"><div class="guide" data-quote="0"></div><p class="quote-note" data-note="0"></p></div><div class="quote-item"><div class="guide" data-quote="1"></div><p class="quote-note" data-note="1"></p></div><div class="quote-item"><div class="guide" data-quote="2"></div><p class="quote-note" data-note="2"></p></div></section>
+<section class="section" id="independent"><div class="heading"><span class="num">05</span><h2>혼자 써보기</h2><span class="hint">마음에 드는 단어나 문장을 써보세요</span></div><div class="guide"></div></section>
+<footer><span>ENGLISH HANDWRITING</span><span>DAILY PRACTICE / 1</span></footer></main>
+<script>
+const quoteBank=["Practice makes perfect.", "Better late than never.", "Actions speak louder than words.", "Where there’s a will, there’s a way.", "Honesty is the best policy.", "Look before you leap.", "Every cloud has a silver lining.", "Brevity is the soul of wit.", "“Hope” is the thing with feathers -", "A thing of beauty is a joy for ever:"];
+const quoteDetails={"Practice makes perfect.": {"meaning": "연습하면 실력이 는다.", "source": "영어 속담"}, "Better late than never.": {"meaning": "늦더라도 안 하는 것보다는 낫다.", "source": "영어 속담"}, "Actions speak louder than words.": {"meaning": "말보다 행동이 중요하다.", "source": "영어 속담"}, "Where there’s a will, there’s a way.": {"meaning": "뜻이 있는 곳에 길이 있다.", "source": "영어 속담"}, "Honesty is the best policy.": {"meaning": "정직이 최선의 방책이다.", "source": "영어 속담"}, "Look before you leap.": {"meaning": "행동하기 전에 신중히 생각하라.", "source": "영어 속담"}, "Every cloud has a silver lining.": {"meaning": "어려운 상황에도 희망은 있다.", "source": "영어 속담"}, "Brevity is the soul of wit.": {"meaning": "간결함이 재치의 핵심이다.", "source": "William Shakespeare · Hamlet, 2.2 · 구절 발췌"}, "“Hope” is the thing with feathers -": {"meaning": "희망은 깃털을 가진 것.", "source": "Emily Dickinson · 시 첫 행 발췌"}, "A thing of beauty is a joy for ever:": {"meaning": "아름다운 것은 영원한 기쁨이다.", "source": "John Keats · Endymion, Book I · 첫 행 발췌"}};
+const wordBank=['little','happy','garden','window','morning','sunshine','gentle','bright','wonder','quiet','journey','kindness','dream','practice','beauty','hope','courage','friendship','flower','simple','brave','smile','patient','thought','learn','peace','believe','fresh','story','world','silver','feather','honesty','lovely','discover','yellow','grateful','wisdom','perfect','playful','cloud','beyond','enjoy','light','grow','ocean','follow','together'];
+const picker=document.getElementById('fontSelect'),printButton=document.getElementById('printButton'),randomButton=document.getElementById('randomButton'),status=document.getElementById('fontStatus'),rows=[...document.querySelectorAll('.guide')];
+let selectedWords=[],selectedQuotes=[],generation=0;
+function drawFresh(bank,count,previous){const pool=bank.filter(x=>!previous.includes(x));for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}return pool.slice(0,count)}
+function shuffleContent(){selectedWords=drawFresh(wordBank,4,selectedWords);selectedQuotes=drawFresh(quoteBank,3,selectedQuotes)}
+function rowText(row){if(row.dataset.word!==undefined)return selectedWords[Number(row.dataset.word)];if(row.dataset.quote!==undefined)return selectedQuotes[Number(row.dataset.quote)];return row.dataset.text||''}
+try{const saved=localStorage.getItem('handwriting-font');if([...picker.options].some(o=>o.value===saved&&!o.disabled))picker.value=saved}catch{}
+async function renderPractice(){
+ const current=++generation,font=picker.value;printButton.disabled=randomButton.disabled=true;document.documentElement.dataset.ready='false';
+ try{
+ let activeFont=font;try{await document.fonts.load(`28px ${font}`)}catch{activeFont="sans-serif"}if(current!==generation)return;
+ document.documentElement.style.setProperty('--practice-font',activeFont);
+ const ctx=document.createElement('canvas').getContext('2d');ctx.font=`28px ${activeFont}`;
+ let size=28;
+ for(const row of rows){const text=rowText(row);if(text)size=Math.min(size,28*(row.clientWidth-18)/ctx.measureText(text).width)}
+ ctx.font=`${size}px ${activeFont}`;
+ const bounds=ctx.measureText('Hlhgypq'),height=Math.max(bounds.actualBoundingBoxAscent+bounds.actualBoundingBoxDescent,bounds.fontBoundingBoxAscent+bounds.fontBoundingBoxDescent);
+ if(height>45){size*=45/height;ctx.font=`${size}px ${activeFont}`}
+ const full=ctx.measureText('Hlhgypq'),baseline=3+Math.max(full.actualBoundingBoxAscent,full.fontBoundingBoxAscent);
+ const levels=[baseline-full.actualBoundingBoxAscent,baseline-ctx.measureText('x').actualBoundingBoxAscent,baseline,baseline+full.actualBoundingBoxDescent];
+ for(const row of rows){const text=rowText(row),ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox',`0 0 ${row.clientWidth} ${14*96/25.4}`);svg.setAttribute('role','img');svg.setAttribute('aria-label',text||'빈 연습 줄');
+ levels.forEach((y,i)=>{const line=document.createElementNS(ns,'line');for(const [k,v] of Object.entries({x1:0,x2:row.clientWidth,y1:y,y2:y}))line.setAttribute(k,v);line.setAttribute('class',i===2?'baseline':i===1?'midline':'');svg.appendChild(line)});
+ if(text){const t=document.createElementNS(ns,'text');t.setAttribute('x',8);t.setAttribute('y',baseline);t.setAttribute('xml:space','preserve');t.style.fontSize=size+'px';t.textContent=text;svg.appendChild(t)}row.replaceChildren(svg)}
+ document.querySelectorAll('[data-note]').forEach(note=>{const detail=quoteDetails[selectedQuotes[Number(note.dataset.note)]];const meaning=document.createElement('span'),source=document.createElement('span');meaning.textContent=detail.meaning;source.className='quote-source';source.textContent=' · '+detail.source;note.replaceChildren(meaning,source)});
+ status.textContent=activeFont!==font?'선택한 글꼴을 사용할 수 없어 기본 산세리프로 표시합니다.':'';
+ try{localStorage.setItem('handwriting-font',font)}catch{}
+ printButton.disabled=randomButton.disabled=false;document.documentElement.dataset.ready='true';
+ }catch{status.textContent='글꼴을 불러오지 못했어요. 다른 글꼴을 선택해 주세요.'}
+}
+picker.addEventListener('change',renderPractice);randomButton.addEventListener('click',()=>{shuffleContent();renderPractice()});printButton.addEventListener('click',()=>window.print());
+document.getElementById('sassoonFile').addEventListener('change',async(event)=>{const file=event.target.files[0];if(!file)return;try{const face=new FontFace('SassoonCustom',await file.arrayBuffer());await face.load();document.fonts.add(face);const option=[...picker.options].find(o=>o.value==='SassoonCustom');option.disabled=false;option.textContent='Sassoon Primary · 불러온 글꼴';picker.value='SassoonCustom';await renderPractice()}catch{status.textContent='글꼴 파일을 읽을 수 없어요. TTF·OTF·WOFF 파일을 확인해 주세요.'}});
+shuffleContent();renderPractice();
+</script></body></html>

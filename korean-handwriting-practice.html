@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>한글 손글씨 네모칸 연습 · 확장편</title>
+<style>
+
+
+
+
+
+
+
+
+:root{--practice-font:Kyobo2019;--practice-size:30px}.toolbar{flex-wrap:wrap;gap:12px}.controls{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.controls label{display:flex;gap:6px;align-items:center}.controls select{padding:7px;font:inherit}.controls input[type=range]{width:95px}.toolbar .status{width:100%;font-size:12px;color:#607568}.cell{min-width:0;min-height:0;overflow:hidden}#simple .cell,#batchim .cell,.idiom .cell{font-family:var(--practice-font);font-size:var(--practice-size)}
+
+*{box-sizing:border-box}body{margin:0;background:#edf0ed;color:#293e32;font-family:"Apple SD Gothic Neo","Malgun Gothic",sans-serif}.toolbar{max-width:210mm;margin:18px auto 12px;display:flex;align-items:center;justify-content:space-between;padding:0 5px;font-size:14px}.toolbar button{border:0;border-radius:8px;padding:12px 20px;background:#315d49;color:white;font:inherit;cursor:pointer}.page{width:210mm;min-height:297mm;margin:0 auto 24px;padding:12mm 14mm;background:white;box-shadow:0 5px 30px #0001}header{border-bottom:2px solid #315d49;padding-bottom:8px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}h1{font-size:23px;letter-spacing:-.8px;margin:0 0 5px}.subtitle{font-size:11px;margin:0;color:#657a6a}.meta{font-size:11px;line-height:2;white-space:nowrap}section{margin-top:10px}.heading{display:flex;align-items:baseline;gap:10px;margin-bottom:5px}h2{font-size:14px;margin:0}.hint{font-size:10px;color:#6d7d70}.grid{display:grid;grid-template-columns:repeat(16,1fr);border-top:1px solid #aebfaf;border-left:1px solid #aebfaf}.cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;border-right:1px solid #aebfaf;border-bottom:1px solid #aebfaf;font-size:25px;font-weight:400}.cell:before{content:"";position:absolute;inset:0;background:linear-gradient(to right,transparent calc(50% - .35px),#dce4dc calc(50% - .35px),#dce4dc calc(50% + .35px),transparent calc(50% + .35px)),linear-gradient(to bottom,transparent calc(50% - .35px),#dce4dc calc(50% - .35px),#dce4dc calc(50% + .35px),transparent calc(50% + .35px))}.cell span{position:relative}.model{background:#f4f7f1;color:#34523e}.trace{color:#bdc7bf}.trace .diagonal{background:#bdc7bf}.diagonal{position:absolute!important;width:62%;height:1px;background:#34523e;top:50%;left:19%;transform:rotate(-45deg)}.diagonal.down{transform:rotate(45deg)}.idiom-label{display:flex;align-items:baseline;gap:9px;margin:5px 0 3px;font-size:10px;color:#647769}.idiom-label strong{font-size:11px;color:#3f5b47}.idiom .cell{aspect-ratio:1}.foot{font-size:9px;color:#718174;margin-top:8px;text-align:right}@page{size:A4;margin:0}@media print{body{background:#fff}.toolbar{display:none}.page{width:210mm;height:297mm;min-height:0;margin:0;box-shadow:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}@media screen and (max-width:800px){.page{width:210mm;transform-origin:top left}.toolbar{min-width:350px;padding:0 12px}body{overflow-x:auto}}
+
+/* 인쇄 배경 옵션에 영향을 받지 않는 흑백 연습 칸 */
+.grid{border-color:#aaa}
+.cell{border-color:#aaa;background:#fff;color:#333}
+.cell:before{background:none;border:0}
+.cell:after{content:none}
+.model{background:#fff;color:#333}
+.trace{color:#b8b8b8}
+.diagonal{background:none!important;border-top:1px solid #333}
+.trace .diagonal{background:none!important;border-top-color:#b8b8b8}
+@media print{
+ .grid,.cell{border-color:#aaa!important}
+ .cell,.model{background:#fff!important}
+ .model{color:#333!important;-webkit-text-fill-color:#333}
+ .trace{color:#b8b8b8!important;-webkit-text-fill-color:#b8b8b8}
+ .cell{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+.cell:before{content:"";position:absolute;left:50%;top:0;bottom:0;right:auto;width:0;border-left:1px solid #e0e0e0;pointer-events:none}
+.cell:after{content:"";position:absolute;top:50%;left:0;right:0;height:0;border-top:1px solid #e0e0e0;pointer-events:none}
+.cell span{z-index:1}
+
+@font-face{font-family:Kyobo2019;src:local("Kyobo Handwriting 2019"),local("KyoboHandwriting2019"),local("교보 손글씨 2019"),url("https://contents.kyobobook.co.kr/display/next/ui-store/build-1794871759/_next/static/media/d8631787c90fdfc6-s.p.woff");font-display:swap}
+@font-face{font-family:Kyobo2020;src:local("Kyobo Handwriting 2020 pdy"),local("KyoboHandwriting2020"),local("교보 손글씨 2020 박도연"),url("https://contents.kyobobook.co.kr/display/next/ui-store/build-1794871759/_next/static/media/4dd6b6e6dcfbd0b1-s.p.woff");font-display:swap}
+@font-face{font-family:Kyobo2021;src:local("Kyobo Handwriting 2021 sjy"),local("KyoboHandwriting2021sjy"),local("교보 손글씨 2021 성지영"),url("https://contents.kyobobook.co.kr/display/next/ui-store/build-1794871759/_next/static/media/dc1031980841310a-s.p.woff");font-display:swap}
+@font-face{font-family:Kyobo2022;src:local("Kyobo Handwriting 2022 khn"),local("KyoboHandwriting2022khn"),local("교보 손글씨 2022 김혜남"),url("https://contents.kyobobook.co.kr/display/next/ui-store/build-1794871759/_next/static/media/e5968c093839a627-s.p.woff");font-display:swap}
+@font-face{font-family:Kyobo2023;src:local("Kyobo Handwriting 2023 wsa"),local("KyoboHandwriting2023wsa"),local("교보 손글씨 2023 우선아"),url("https://contents.kyobobook.co.kr/display/next/ui-store/build-1794871759/_next/static/media/d2af47f2024c0a30-s.p.woff");font-display:swap}
+@font-face{font-family:Kyobo2024;src:local("Kyobo Handwriting 2024 psw"),local("KyoboHandwriting2024psw"),local("교보 손글씨 2024 박서우"),url("https://contents.kyobobook.co.kr/display/next/ui-store/build-1794871759/_next/static/media/10e55c188033c28c-s.p.otf");font-display:swap}
+@font-face{font-family:Kyobo2025;src:local("Kyobo Handwriting 2025 lyb"),local("KyoboHandwriting2025lyb"),local("교보 손글씨 2025 이유빈"),url("https://contents.kyobobook.co.kr/display/next/ui-store/build-1794871759/_next/static/media/92727ae68bd428cc-s.p.otf");font-display:swap}
+@media screen{
+.toolbar{box-sizing:border-box;width:calc(100% - 24px);min-width:0;max-width:210mm;margin:14px auto;padding:14px;display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:10px;background:#fff;color:#293d35;border:1px solid #cbd5ce;border-radius:12px;font:14px/1.4 system-ui,sans-serif}
+.toolbar .home,.toolbar button,.toolbar select,.toolbar #position-toggle{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:7px 13px;border:1px solid #bccbc3;border-radius:8px;background:#f5f8f5;color:#223e32;font:inherit;text-decoration:none;cursor:pointer}
+.toolbar .print{margin-left:auto;background:#244e3a;color:white}.toolbar button:disabled{opacity:.55}
+.toolbar .controls,.toolbar-buttons{display:contents}.toolbar label{flex-wrap:wrap}.toolbar p,.toolbar .status,.toolbar #fontStatus,.toolbar .small:not(label){order:5;flex-basis:100%;margin:0;font-size:12px;color:#53665c}.toolbar .print{order:4}
+}
+@page{size:A4 portrait;margin:5mm}
+@media print{html,body{width:auto;height:auto;min-height:0;margin:0;padding:0;background:white}.toolbar{display:none!important}body .page{width:100%;height:auto;min-height:0;margin:0;padding:6mm 8mm;box-shadow:none;break-inside:auto}}
+
+@media screen {
+  .toolbar .home, .toolbar .file-button { width: 58px; height: 42px; padding: 0; flex: 0 0 58px; }
+  .toolbar select { max-width: 100%; min-width: 0; }
+  .toolbar .size-control { display: inline-flex; align-items: center; gap: 6px; }
+  .toolbar .size-control input { width: 92px; }
+  .toolbar .file-button:focus-within { outline: 2px solid #244e3a; outline-offset: 2px; }
+  .toolbar .file-input { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); }
+  .toolbar [role="status"]:empty { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="toolbar"><a class="home" href="index.html">← 홈</a><button id="new-sheet" type="button">NEW ↻</button><select aria-label="연습 글꼴" id="font-choice"><option value="kyobo2019" selected>교보 손글씨 2019</option><option value="kyobo2020">교보 손글씨 2020 박도연</option><option value="kyobo2021">교보 손글씨 2021 성지영</option><option value="kyobo2022">교보 손글씨 2022 김혜남</option><option value="kyobo2023">교보 손글씨 2023 우선아</option><option value="kyobo2024">교보 손글씨 2024 박서우</option><option value="kyobo2025">교보 손글씨 2025 이유빈</option><option value="gothic">기본 고딕</option><option value="serif">기본 명조</option></select><label class="size-control"><input id="font-size" type="range" aria-label="글자 크기" min="20" max="36" value="30"><output id="size-value">30</output></label><label class="home file-button">파일<input class="file-input" id="font-file" type="file" aria-label="글꼴 파일 선택" accept=".ttf,.otf,.woff,.woff2"></label><button class="print" id="print-button" type="button">인쇄 / PDF 저장</button><div class="status" id="font-status" role="status"></div></div>
+<main class="page">
+<header><div><h1>차근차근, 한글 손글씨</h1><p class="subtitle">본보기 → 연한 글자 따라 쓰기 → 빈칸에 혼자 쓰기</p></div><div class="meta">이름 ______________<br>날짜 ______ / ____ / ____</div></header>
+<section><div class="heading"><h2>① 손풀기</h2><span class="hint">가로·세로·사선·동그라미를 천천히 그려요.</span></div><div id="warm" class="grid"></div></section>
+<section><div class="heading"><h2>② 받침 없는 글자</h2><span class="hint">자음과 모음이 한 칸 안에서 균형을 이루게 써요.</span></div><div id="simple" class="grid"></div></section>
+<section><div class="heading"><h2>③ 받침 있는 글자</h2><span class="hint">받침까지 넣어도 글자 전체 크기는 비슷하게 맞춰요.</span></div><div id="batchim" class="grid"></div></section>
+<section class="idiom"><div class="heading"><h2>④ 사자성어</h2><span class="hint">본보기 다음은 따라 쓰기, 나머지 두 묶음은 혼자 써요.</span></div>
+<div class="idiom-label"><strong>일석이조</strong><span>한 가지 일로 두 가지 이익을 얻음</span></div><div id="idiom1" class="grid"></div>
+<div class="idiom-label"><strong>대기만성</strong><span>큰 인물은 오랜 노력 끝에 이루어짐</span></div><div id="idiom2" class="grid"></div>
+<div class="idiom-label"><strong>유비무환</strong><span>미리 준비하면 걱정할 일이 없음</span></div><div id="idiom3" class="grid"></div>
+<div class="idiom-label"><strong>초지일관</strong><span>처음의 뜻을 끝까지 한결같이 지킴</span></div><div id="idiom4" class="grid"></div>
+</section><div class="foot">펜은 편하게 잡고, 힘을 빼고 또박또박 써요.</div>
+</main>
+<script>
+function add(id,text,kind=''){const c=document.createElement('div');c.className='cell '+kind;const s=document.createElement('span');if(text==='／'||text==='＼'){s.className='diagonal'+(text==='＼'?' down':'')}else{s.textContent=text}c.appendChild(s);document.getElementById(id).appendChild(c)}
+function groups(id,letters,width){for(const letter of letters){add(id,letter,'model');for(let i=1;i<width;i++)add(id,i===1?letter:'',i===1?'trace':'')}}
+groups('warm',['ㅡ','ㅣ','／','＼','○','／','＼','○'],4);
+// 글자 구조가 골고루 나오도록 각 묶음에서 하나씩 선택합니다.
+const simplePools=[['가','너','더','러','마','버','사','아','자','차','카','타','파','하'],['고','노','도','로','모','보','소','오','조','초','코','토','포','호'],['구','누','두','루','무','부','수','우','주','추','쿠','투','푸','후'],['기','니','디','리','미','비','시','이','지','치','키','티','피','히'],['개','내','대','매','배','새','재','채','태','패','해'],['게','네','데','레','메','베','세','에','제','체','테','페','헤'],['야','여','요','유','나','거','머','허','혀','셔'],['과','귀','뒤','돼','뭐','봐','쥐','쉬','위','왜']];
+const batchimPools=[['산','눈','문','손','한','돈','신'],['달','별','물','길','말','불','글'],['봄','꿈','밤','섬','곰','감','김'],['강','공','방','종','창','콩','병'],['책','국','목','약','떡','벽','죽'],['집','밥','입','컵','답','숲','덮'],['꽃','빛','옷','낮','밭','끝','팥'],['값','삶','흙','닭','몫','넋','앉']];
+const idioms=[
+ ['일석이조','한 가지 일로 두 가지 이익을 얻음'],['대기만성','큰 인물은 오랜 노력 끝에 이루어짐'],['유비무환','미리 준비하면 걱정할 일이 없음'],['초지일관','처음의 뜻을 끝까지 한결같이 지킴'],
+ ['고진감래','고생 끝에 즐거움이 찾아옴'],['일취월장','날마다 달마다 실력이 발전함'],['온고지신','옛것을 익혀 새로운 것을 앎'],['역지사지','상대의 처지에서 생각함'],
+ ['이심전심','말하지 않아도 마음이 서로 통함'],['동고동락','괴로움과 즐거움을 함께함'],['십시일반','여러 사람이 조금씩 힘을 보탬'],['작심삼일','결심이 오래가지 못함'],
+ ['우공이산','꾸준히 노력하면 큰일도 이룰 수 있음'],['마부작침','끊임없이 노력하여 뜻을 이룸'],['수적천석','작은 노력도 쌓이면 큰일을 이룸'],['자수성가','자신의 힘으로 기반을 이루고 성공함'],
+ ['청출어람','제자가 스승보다 더 뛰어남'],['백전백승','싸울 때마다 모두 이김'],['금상첨화','좋은 일에 또 좋은 일이 더해짐'],['다다익선','많으면 많을수록 좋음'],
+ ['문전성시','찾아오는 사람이 매우 많음'],['동문서답','물음과 관계없는 대답을 함'],['천고마비','하늘이 높고 말이 살찌는 가을'],['산전수전','여러 가지 어려움과 경험을 겪음'],
+ ['결자해지','일을 벌인 사람이 스스로 해결함'],['언행일치','말과 행동이 서로 같음'],['공명정대','공정하고 떳떳함'],['견물생심','물건을 보면 가지고 싶은 마음이 생김'],
+ ['과유불급','지나친 것은 모자란 것과 같음'],['사필귀정','일은 결국 바른 이치로 돌아감'],['전화위복','재앙이 바뀌어 오히려 복이 됨']
+].filter(([word])=>word.length===4);
+function shuffled(items){const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy}
+let previousSimple=[],previousBatchim=[],previousIdioms=[];
+function pickLetters(pools,previous){return shuffled(pools.map(pool=>{const available=pool.filter(ch=>!previous.includes(ch));const candidates=available.length?available:pool;return candidates[Math.floor(Math.random()*candidates.length)]}))}
+function newSheet(){
+ const simple=pickLetters(simplePools,previousSimple),batchim=pickLetters(batchimPools,previousBatchim);
+ const selected=shuffled(idioms.filter(([word])=>!previousIdioms.includes(word))).slice(0,4);
+ document.getElementById('simple').replaceChildren();document.getElementById('batchim').replaceChildren();
+ groups('simple',simple,4);groups('batchim',batchim,4);
+ selected.forEach(([word,meaning],i)=>{const id='idiom'+(i+1),grid=document.getElementById(id);grid.replaceChildren();const label=grid.previousElementSibling;label.querySelector('strong').textContent=word;label.querySelector('span').textContent=meaning;for(const ch of word)add(id,ch,'model');for(const ch of word)add(id,ch,'trace');for(let j=0;j<8;j++)add(id,'')});
+ previousSimple=simple;previousBatchim=batchim;previousIdioms=selected.map(([word])=>word);
+}
+document.getElementById('new-sheet').addEventListener('click',newSheet);newSheet();
+const choices={kyobo2019:'Kyobo2019',kyobo2020:'Kyobo2020',kyobo2021:'Kyobo2021',kyobo2022:'Kyobo2022',kyobo2023:'Kyobo2023',kyobo2024:'Kyobo2024',kyobo2025:'Kyobo2025',gothic:'"Apple SD Gothic Neo","Malgun Gothic",sans-serif',serif:'"AppleMyungjo","Batang",serif'};
+const fontChoice=document.getElementById('font-choice');
+let fontLoad=Promise.resolve(),fontFailed=false;
+function applyFont(){
+ const family=choices[fontChoice.value],status=document.getElementById('font-status');
+ document.documentElement.style.setProperty('--practice-font',family);
+ const selected=fontChoice.options[fontChoice.selectedIndex].textContent;
+ status.textContent='';fontFailed=false;
+ fontLoad=document.fonts.load('30px '+family,'한글').then(()=>{if(choices[fontChoice.value]===family){fontFailed=false;status.textContent=''}}).catch(()=>{if(choices[fontChoice.value]===family){fontFailed=false;document.documentElement.style.setProperty('--practice-font',choices.gothic);status.textContent=selected+'을 사용할 수 없어 기본 고딕으로 표시합니다.'}});
+ return fontLoad;
+}
+fontChoice.addEventListener('change',applyFont);applyFont();
+document.getElementById('font-size').addEventListener('input',event=>{document.documentElement.style.setProperty('--practice-size',event.target.value+'px');document.getElementById('size-value').value=event.target.value});
+document.getElementById('font-file').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;try{const font=new FontFace('MyPracticeFont',await file.arrayBuffer());await font.load();document.fonts.add(font);choices.custom='MyPracticeFont';let option=fontChoice.querySelector('[value="custom"]');if(!option){option=new Option('내 글꼴','custom');fontChoice.add(option)}option.textContent=file.name;fontChoice.value='custom';fontChoice.dispatchEvent(new Event('change'));}catch{document.getElementById('font-status').textContent='글꼴을 열 수 없어요. TTF, OTF, WOFF 파일을 선택해 주세요.'}});
+document.getElementById('print-button').addEventListener('click',async()=>{await fontLoad;await document.fonts.ready;if(!fontFailed)window.print()});
+</script>
+</body></html>
